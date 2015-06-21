@@ -1,0 +1,106 @@
+---
+title       : Sample Means of Exponential Distribution Simulation
+subtitle    : Shiny App
+author      : jcalcab
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax,interactive]  # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+ext_widgets : {rCharts: ["libraries/polycharts", "libraries/highcharts", 
+                        "libraries/nvd3", "libraries/morris"]}
+---
+
+### Project overview
+The central limit theorem says that the sample mean drawn from any parent population will tend towards being normally distributed as n, the size of the sample, grows larger.
+
+The sample size needed so that the normal distribution reasonably approximates the sample mean varies from one type of distribution to another.
+
+The goal of this app is simulate the distribution of averages of n exponential($\lambda$)s.
+
+---
+### Project description
+The app show:
+
+1. Where the distribution is centered at and compare it to the theoretical center of the distribution.
+2. How variable it is and compare it to the theoretical variance of the distribution.
+3. Show that the distribution is approximately normal.
+
+The app allow set:
+
+1. Parameter lambda ($\lambda$) for all simulations
+2. Size of sample exponentials
+3. Number of simulations
+
+---
+
+## Exponential distribution simulation output
+This plot show some App graphics for exp(0.2) size 40 and 100 simulations.
+Lines in red are theoretical values.
+
+```{r echo=FALSE }
+library(ggplot2)
+library(gridExtra)
+n<-40
+lambda<-0.2
+nsims<-100
+vsims<-1:nsims
+means_df<-data.frame(x = sapply(vsims, function(x) {mean(rexp(n, lambda))}))
+means<-means_df$x
+theoretical_mean<-1/lambda
+sample_mean<-mean(means)
+theoretical_sd<-(1/lambda)/sqrt(n)
+sample_sd<-sd(means)
+                
+sample_var<-var(means)
+theoretical_var<-theoretical_sd^2
+#Table os theorical and sample values of mean, sd and variance
+df<-data.frame(mean=c(sample_mean, theoretical_mean),
+               sd=c(sample_sd, theoretical_sd),
+               var=c(sample_var, theoretical_var))
+row.names(df)<-c("Sample", "Theoretical")
+df_round<-round(df,2)
+t1 <- tableGrob(df_round,show.rownames = TRUE,cols = c("Mean","SD","Variance"))
+
+
+                
+# plot histogram and density of scaled means
+label1<-paste("Sample means Exponential(",n,",",lambda,")\n",nsims," simulations") 
+p2<-ggplot(means_df, aes(x=x)) + geom_histogram(aes(y=..density..),binwidth=.1,colour="black",fill="white") +
+        geom_density(alpha=.2,fill="#FF6666") +
+        stat_function(fun = dnorm, colour = "red", arg = list(mean = theoretical_mean,sd = theoretical_sd)) +
+        geom_vline(xintercept = theoretical_mean,colour="red",linetype="dotted",size = 1) +
+        geom_vline(xintercept = sample_mean,colour="blue",linetype="dashed",size = 1) +
+        xlab(label=label1) +
+        ylab(label="Frecuency/Density")
+                         
+#Q-Q plot
+p3<-qplot(sample=means,stat="qq",main="Normal Q-Q plot")
+#Arrange and print graphics
+grid.arrange(p2,p3,t1,nrow=2,ncol=2)
+```
+
+---
+
+### Interactive SHINY web app
+
+
+- Available at: http://vedra.shinyapps.io/PAshiny/
+
+- App source code: https://github.com/vedra/ShinyApp
+
+
+<img width="340" height="210" src="AppShot.png">
+
+
+### REFERENCES
+
+- Materials on LMP, Shiny, Slidify etc: www.coursera.com
+
+- Data info: http://www.math.uah.edu/stat/data/Galton.html
+
+- Image source: www.pixshark.com
+
+- Full slidify: https://vedra.github.io/DDPSlidifyFull/index.html
+
