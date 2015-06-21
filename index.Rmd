@@ -90,6 +90,8 @@ grid.arrange(p2,p3,t1,nrow=2,ncol=2)
 
 - App source code: https://github.com/jcalvocab/Exponential_Sample_Means_App.git
 
+- Presentation: 
+
 
 
 
