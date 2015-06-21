@@ -6,7 +6,7 @@ The central limit theorem says that the sample mean drawn from any parent popula
 
 The sample size needed so that the normal distribution reasonably approximates the sample mean varies from one type of distribution to another.
 
-The goal of this app is simulate the distribution of averages of n exponential($\lambda$)s.
+The goal of this app is simulate the distribution of averages of n exponential(lambda)s.
 
 ---
 ### Project description
@@ -18,7 +18,7 @@ The app show:
 
 The app allow set:
 
-1. Parameter lambda ($\lambda$) for all simulations
+1. Parameter lambda for all simulations
 2. Size of sample exponentials
 3. Number of simulations
 
