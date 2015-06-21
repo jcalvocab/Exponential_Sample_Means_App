@@ -50,6 +50,8 @@ Lines in red are theoretical values.
 
 - App source code: https://github.com/jcalvocab/Exponential_Sample_Means_App.git
 
+- Presentation: http://jcalvocab.github.io/Exponential_Sample_Means_App/
+
 
 
 
