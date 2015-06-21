@@ -36,7 +36,8 @@ The app allow set:
 ---
 
 ## Exponential distribution simulation output
-This plot show some App graphics for exp(0.2) size 40 and 100 simulations:
+This plot show some App graphics for exp(0.2) size 40 and 100 simulations.
+Lines in red are theoretical values.
 
 ![plot of chunk unnamed-chunk-1](assets/fig/unnamed-chunk-1-1.png) 
 
@@ -45,21 +46,10 @@ This plot show some App graphics for exp(0.2) size 40 and 100 simulations:
 ### Interactive SHINY web app
 
 
-- Available at: http://vedra.shinyapps.io/PAshiny/
+- Available at: https://jcalvocab.shinyapps.io/Exponential_Sample_Means_App
 
-- App source code: https://github.com/vedra/ShinyApp
-
-
-<img width="340" height="210" src="AppShot.png">
+- App source code: https://github.com/jcalvocab/Exponential_Sample_Means_App.git
 
 
-### REFERENCES
 
-- Materials on LMP, Shiny, Slidify etc: www.coursera.com
-
-- Data info: http://www.math.uah.edu/stat/data/Galton.html
-
-- Image source: www.pixshark.com
-
-- Full slidify: https://vedra.github.io/DDPSlidifyFull/index.html
 

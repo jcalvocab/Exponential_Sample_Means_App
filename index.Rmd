@@ -86,21 +86,10 @@ grid.arrange(p2,p3,t1,nrow=2,ncol=2)
 ### Interactive SHINY web app
 
 
-- Available at: http://vedra.shinyapps.io/PAshiny/
+- Available at: https://jcalvocab.shinyapps.io/Exponential_Sample_Means_App
 
-- App source code: https://github.com/vedra/ShinyApp
-
-
-<img width="340" height="210" src="AppShot.png">
+- App source code: https://github.com/jcalvocab/Exponential_Sample_Means_App.git
 
 
-### REFERENCES
 
-- Materials on LMP, Shiny, Slidify etc: www.coursera.com
-
-- Data info: http://www.math.uah.edu/stat/data/Galton.html
-
-- Image source: www.pixshark.com
-
-- Full slidify: https://vedra.github.io/DDPSlidifyFull/index.html
 
